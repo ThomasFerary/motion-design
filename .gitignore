@@ -20,3 +20,4 @@ _references/
 !examples/*.mp4
 !examples/*/*.mp4
 !examples/*/*/*.mp4
+.node/
