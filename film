@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Launcher of the film tool (.claude/skills/film/scripts/film.py): ./film new <nom>, ./film liste, ./film --help
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+for py in python3 python py; do
+  if command -v "$py" >/dev/null 2>&1 && "$py" -c "import sys; sys.exit(sys.version_info < (3, 9))" >/dev/null 2>&1; then
+    exec "$py" "$ROOT/.claude/skills/film/scripts/film.py" "$@"
+  fi
+done
+echo "film: Python 3.9 or newer not found" >&2
+exit 1
